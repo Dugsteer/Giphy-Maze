@@ -770,7 +770,7 @@ h4 {
   height: 80px;
   width: 80px;
   top: 65%;
-  visibility: visible;
+  visibility: hidden;
   fill: #ffe164;
   z-index: 20; }
   @media only screen and (max-width: 50em) {
@@ -800,7 +800,7 @@ h4 {
 .img-container {
   position: relative;
   grid-row: 2/3;
-  width: 500px;
+  width: auto;
   height: auto;
   display: flex;
   margin-top: 2rem;
@@ -820,6 +820,9 @@ h4 {
     .img-container {
       font-size: 2rem;
       width: 350px; } }
+
+iframe {
+  border-radius: 12px; }
 
 .img-container .after {
   position: absolute;
@@ -843,19 +846,19 @@ h4 {
 
 #good {
   position: absolute;
-  display: none;
+  visibility: hidden;
   flex-direction: column;
   align-items: center;
+  transform: scale(110%);
   justify-content: space-evenly;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #368cbf;
+  background-color: #d0eaf8;
   border-radius: 8px;
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
   font-family: Montserrat, sans-serif;
-  padding-top: 2rem;
+  padding-top: 30%;
   z-index: 4; }
   #good p.fab {
     color: white; }

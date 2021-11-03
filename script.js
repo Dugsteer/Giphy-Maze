@@ -64,7 +64,7 @@ myFunction(blue);
 
 //Main Action
 
-const image = document.getElementById("image");
+const myFrame = document.getElementById("myFrame");
 const topText = document.getElementById("answer-text");
 const questionText = document.getElementById("question-text");
 const wronganswer = document.getElementById("wronganswer");
@@ -72,8 +72,9 @@ const good = document.getElementById("good");
 const logOut = document.getElementById("logout");
 const imgContainer = document.getElementById('img-container');
 const after = document.getElementById('after');
-const check = document.getElementById('check');
-const remove = document.getElementById('remove');
+const tick = document.getElementById('tick');
+const cross = document.getElementById('cross');
+const vidsy = document.getElementById('vidsy');
 
 // Counter for index of arrays
 let place = 0;
@@ -82,51 +83,32 @@ let d;
 
 // Arrays for top text and text on left and right
 
-const problemSentences = [
-  "Does every day Betsy have a bath?",
-  false,
-  "Tina visits her treehouse every Tuesday",
-  true,
-  "Ahmed does always Parkour on Saturday",
-  false,
-  "Daryl sometimes goes surfing",
-  true,
-  "Milly, Molly and Mark visit often their Grandparents",
-  false,
-  "Ben eats big burgers usually for breakfast",
-  false,
-  "Milo rarely gets up before 11.00am",
-  true,
-  "Luka twice a day eats ice cream",
-  false,
-  "Tommy rarely takes out his trash",
-  true,
-  "Archie often is angry",
-  false,
-  "Our teachers go often cycling",
-  false,
-  "Lily always listens to music in the evening",
-  true
-];
+const gifsets = [
+  [
+"https://giphy.com/embed/dyDON3eWnvVbW",
+    "This dog is longer than a car",
+    true, 
+  ],
+  [
+"https://giphy.com/embed/12vVdgUJbmlnt6",
+"This dog is hungryer than a horse",
+    false, 
+    "This dog is hungrier than a horse"
+  ],
+["https://giphy.com/embed/Bq5zu6O9zzCd7YIcU5",
+"This dog can jump higher than a rabbit",
+true
+]
+]
 
-const correctedSentences = [
-  "Does Betsy have a bath every day?",
-  "Ahmed always does Parkour on Saturday",
-  "Milly, Molly and Mark often visit their Grandparents",
-  "Ben usually eats big burgers for breakfast",
-  "Luka eats ice cream twice a day",
-  "Archie is often angry",
-  "Our teachers often go cycling"
-];
+function next (){
+myFrame.src = `${gifsets[1][0]}`;
+}
+
 
 // Remove the landing page and/or return user to the start
 function restarter(){
   window.location.reload();
-}
-
-function begin() {
-  place = -2;
-  nextOne();
 }
 
 function showNextArrow(){
@@ -134,7 +116,7 @@ function showNextArrow(){
 }
 
 function showRightText(c){
-  topText.innerText = correctedSentences.shift();
+  topText.innerText = `${gifsets[place][3]}`
   console.log(topText.innerText);
   showNextArrow();
 }
@@ -146,27 +128,28 @@ function showCorrect(){
 
 // Move on to the next 'slide'.
 function nextOne() {
-  place = place + 2;
+  place = place + 1;
   d = place;
-  if (place > problemSentences.length - 2){
+  if (place > gifsets.length -1){
     questionText.innerHTML = "";
-    good.style.display = "flex";
+    good.style.visibility = "visible";
+    good.innerHTML = `<div style="width:100%"><div style="height:0;padding-bottom:75%;position:relative;width:100%"><iframe allowfullscreen="" frameBorder="0" height="100%" src="https://giphy.com/embed/YTbXXmG5SNfvn0K6s0/video" style="left:0;position:absolute;top:0" width="100%"></iframe></div></div>`;
     wronganswer.style.display = "none";
     after.classList.remove('overlay');
-    setTimeout(restarter, 3000);
+    // setTimeout(restarter, 3000);
 } else {
   after.classList.remove('overlay');
   topText.style.visibility = "hidden";
   logOut.style.visibility = "hidden";
-  questionText.innerText = problemSentences[place];
-  image.src = `img/frequency-maze/slide${d/2}.jpeg`;
+  questionText.innerText = `${gifsets[place][1]}`;
+  myFrame.src = `${gifsets[place][0]}`;
 }
 }
 
 // Check to see if clicked is correct or not
 function checkForWrong() { 
   topText.innerText = "";
-    let c = problemSentences[place + 1];
+    let c = gifsets[place][2];
     if (c === false){
       after.classList.add('overlay');
       topText.style.visibility = "visible";
@@ -181,7 +164,7 @@ function checkForWrong() {
 function checkForRight() {
   topText.innerText = "";
 
-    c = problemSentences[place + 1];
+  let c = gifsets[place][2];
     if (c === true){
       after.classList.add('overlay');
       topText.style.visibility = "visible";
@@ -193,9 +176,7 @@ function checkForRight() {
   }
 
 logOut.addEventListener("click", nextOne);
-mainpic.addEventListener('click', addDot);
-remove.addEventListener('click', checkForWrong);
-check.addEventListener('click', checkForRight);
+cross.addEventListener('click', checkForWrong);
+tick.addEventListener('click', checkForRight);
 
 
-begin();
