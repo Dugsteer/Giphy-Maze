@@ -7,10 +7,10 @@
   display: grid;
   align-items: center;
   justify-content: center;
-  background-color: #fff;
+  // background-color: #fff;
   border-radius: 5px;
-  box-shadow: $box-shadow-small;
-  width: 800px;
+  // box-shadow: $box-shadow-small;
+  width: 900px;
   padding: 2rem 0;
   padding-bottom: 6rem;
   margin-bottom: 2rem;
@@ -18,7 +18,7 @@
   grid-template-columns: 1fr;
 
   @media only screen and (max-width: $bp-large) {
-    width: 600px;
+    width: 400px;
   }
   @media only screen and (max-width: $bp-small) {
     grid-row: 1/2;
@@ -41,43 +41,16 @@
   align-items: center;
   justify-content: space-evenly;
 }
-
-.check {
-  width: 80px;
-  height: 80px;
-  cursor: pointer;
-}
-
-.check:hover {
-  transform: scale(1.03);
-}
-
-.check:active {
-  transform: translateY(2px);
-}
-
-.check img {
+.bottom {
+  grid-row: 3/4;
   width: 100%;
-  height: 100%;
-}
-.remove {
-  width: 80px;
-  height: 80px;
-  cursor: pointer;
-}
-
-.remove:hover {
-  transform: scale(1.03);
+  margin: 2rem 0;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
-.remove:active {
-  transform: translateY(2px);
-}
-
-.remove img {
-  width: 100%;
-  height: 100%;
-}
 
 .top-text {
   position: absolute;
@@ -130,6 +103,7 @@
   line-height: 3.6rem;
   width: 400px;
   text-align: center;
+  cursor: pointer;
 
   @media only screen and (max-width: $bp-large) {
     font-size: 2.4rem;
@@ -143,13 +117,16 @@
   }
 }
 
+.logout {
+  cursor: pointer;
+}
+
 .img-container {
   position: relative;
   grid-row: 2/3;
-  width: auto;
+  width: 500px;
   height: auto;
   display: flex;
-  margin-top: 2rem;
   border-radius: 8px;
   align-items: center;
   justify-content: center;
@@ -190,7 +167,8 @@ iframe {
 
 .overlay {
   display: block;
-  background: rgba(0, 0, 0, 0.5);
+  transform: scale(100%);
+  background: rgba(43, 100, 152, 1);
 }
 
 .img-container img {
@@ -204,7 +182,6 @@ iframe {
   visibility: hidden;
   flex-direction: column;
   align-items: center;
- transform: scale(110%);
   justify-content: space-evenly;
   top: 0;
   bottom: 0;
@@ -213,7 +190,6 @@ iframe {
   background-color: #d0eaf8;
   border-radius: 8px;
   font-family: Montserrat, sans-serif;
-  padding-top: 30%;
   z-index: 4;
 
   & p.fab {
