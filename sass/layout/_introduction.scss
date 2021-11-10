@@ -19,11 +19,12 @@
     height: 333px;
   }
   @media only screen and (max-width: $bp-small) {
-    grid-row: 2/3;
+    grid-row: 3/4;
     justify-content: center;
     width: 400px;
     height: 500px;
     flex-direction: column;
+    display: none;
   }
 
   @media only screen and (max-width: $bp-smallest) {
