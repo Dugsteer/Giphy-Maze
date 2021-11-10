@@ -58,22 +58,63 @@ h4 {
   margin-bottom: 0.7rem; }
 
 .sense {
-  grid-row: 2/3;
+  grid-row: 1/2;
   grid-column: 2/3;
-  width: 100%; }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem; }
   @media only screen and (max-width: 37.5em) {
     .sense {
       grid-row: 2/3;
       grid-column: 1/2; } }
 
+.mainpage_top {
+  width: 320px;
+  height: 100px;
+  background-color: red; }
+
+@media (min-width: 600px) {
+  .mainpage_top {
+    width: 600px;
+    height: 60px; } }
+
+@media (min-width: 800px) {
+  .mainpage_top {
+    width: 800px;
+    height: 90px; } }
+
 .sense-bottom {
-  grid-row: 4/5;
+  grid-row: 5/6;
   grid-column: 2/3;
-  width: 100%; }
+  margin-top: 2rem;
+  background-color: blue;
+  width: 320px;
+  height: auto; }
   @media only screen and (max-width: 37.5em) {
     .sense-bottom {
       grid-row: 4/5;
       grid-column: 1/2; } }
+
+@media (min-width: 600px) {
+  .mainpage_top {
+    width: 600px;
+    height: 60px; } }
+
+@media (min-width: 800px) {
+  .mainpage_top {
+    width: 800px;
+    height: 90px; } }
+
+@media (min-width: 600px) {
+  .sense-bottom {
+    width: 600px;
+    height: auto; } }
+
+@media (min-width: 800px) {
+  .sense-bottom {
+    width: 800px;
+    height: auto; } }
 
 .buttons {
   display: flex;
@@ -531,15 +572,15 @@ h4 {
     fill: #7ebc59; }
 
 .introduction {
-  grid-row: 1/2;
+  grid-row: 2/3;
   grid-column: 2/3;
   width: 800px;
-  height: 400px;
+  height: auto;
   background-color: #fff;
   justify-self: center;
   align-self: center;
-  margin: 4rem 0;
-  padding: 1rem 0;
+  margin: 2rem 0;
+  padding: 2rem 0;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -577,13 +618,12 @@ h4 {
     animation: mazerunner 4s infinite; }
   .introduction__img {
     position: relative;
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     background-color: #7ebc59;
     padding: 20px;
     align-self: center;
     justify-self: flex-end;
-    margin-bottom: 2rem;
     border-radius: 3px;
     cursor: pointer;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4); }
@@ -660,6 +700,7 @@ h4 {
   box-shadow: 3px 0px 1px 0px rgba(0, 0, 0, 0.4);
   display: grid;
   align-items: center;
+  justify-items: center;
   background-color: #d0eaf8;
   margin: 0 auto;
   grid-template-rows: auto auto auto auto auto;
@@ -691,9 +732,6 @@ h4 {
   justify-content: center;
   border-radius: 5px;
   width: 900px;
-  padding: 2rem 0;
-  padding-bottom: 6rem;
-  margin-bottom: 2rem;
   grid-template-rows: 120px minmax(0, 1fr);
   grid-template-columns: 1fr; }
   @media only screen and (max-width: 62.5em) {
@@ -702,18 +740,15 @@ h4 {
   @media only screen and (max-width: 37.5em) {
     .main {
       grid-row: 1/2;
-      margin-top: 4rem;
       width: 400px; } }
   @media only screen and (max-width: 28em) {
     .main {
       grid-row: 1/2;
-      margin-top: 4rem;
       width: 360px; } }
 
 .top {
   grid-row: 1/2;
   width: 100%;
-  margin: 2rem 0;
   height: auto;
   display: flex;
   align-items: center;
@@ -722,7 +757,7 @@ h4 {
 .bottom {
   grid-row: 3/4;
   width: 100%;
-  margin: 2rem 0;
+  margin-top: 2rem;
   height: auto;
   display: flex;
   align-items: center;
@@ -774,7 +809,8 @@ h4 {
   line-height: 3.6rem;
   width: 400px;
   text-align: center;
-  cursor: pointer; }
+  cursor: pointer;
+  transition: 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
   @media only screen and (max-width: 62.5em) {
     .question-text {
       font-size: 2.4rem; } }
@@ -785,6 +821,9 @@ h4 {
   @media only screen and (max-width: 28em) {
     .question-text {
       font-size: 2.6rem; } }
+
+.question-text:hover {
+  transform: scale(1.05); }
 
 .logout {
   cursor: pointer; }
@@ -918,10 +957,10 @@ iframe {
   animation: animate 1.5s infinite; }
 
 .links {
-  grid-row: 5/6;
+  grid-row: 4/5;
   grid-column: 2/3;
   width: 800px;
-  height: 500px;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -929,7 +968,7 @@ iframe {
   text-align: center;
   border-radius: 5px;
   margin: 4rem 0;
-  padding: 2rem 0rem;
+  padding: 3rem 0rem;
   background-color: #fff;
   justify-content: flex-start;
   box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.1); }
